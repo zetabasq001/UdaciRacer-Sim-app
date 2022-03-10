@@ -82,16 +82,21 @@ async function handleCreateRace() {
     const trackId = store.track_id;
 
 	// const race = TODO - invoke the API call to create the race, then save the result
-    
+    const race = createRace(playerId, trackId);
+
 	// TODO - update the store with the race id
 	// For the API to work properly, the race id should be race id - 1
+    store.race_id = race.id;
 	
 	// The race has been created, now start the countdown
 	// TODO - call the async function runCountdown
+    runCountdown();
 
 	// TODO - call the async function startRace
+    startRace(store.race_id);
 
 	// TODO - call the async function runRace
+    runRace(store.race_id);
 }
 
 function runRace(raceID) {
