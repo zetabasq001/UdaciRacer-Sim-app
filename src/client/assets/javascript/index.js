@@ -113,7 +113,6 @@ function runRace(raceID) {
             renderAt('#leaderBoard', raceProgress(res.positions));
         }
         
-
         /* 
             TODO - if the race info status property is "finished", run the following:
 
@@ -139,12 +138,17 @@ async function runCountdown() {
 
 		return new Promise(resolve => {
 			// TODO - use Javascript's built in setInterval method to count down once per second
+            const timerInterval = setInterval(timer--, 1000);
 
 			// run this DOM manipulation to decrement the countdown for the user
 			document.getElementById('big-numbers').innerHTML = --timer
 
 			// TODO - if the countdown is done, clear the interval, resolve the promise, and return
-
+            if (!timer) {
+                clearInterval(timerInterval);
+                resolve(res);
+                return;
+            }
 		})
 	} catch(error) {
 		console.log(error);
