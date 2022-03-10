@@ -109,7 +109,9 @@ function runRace(raceID) {
 
             renderAt('#leaderBoard', raceProgress(res.positions))
         */
-
+        if (getRace(raceID).status === 'in-progress') {
+            renderAt('#leaderBoard', raceProgress(res.positions));
+        }
         
 
         /* 
@@ -119,7 +121,13 @@ function runRace(raceID) {
             renderAt('#race', resultsView(res.positions)) // to render the results view
             reslove(res) // resolve the promise
         */
-	})
+        if (getRace(raceID).status === 'finished') {
+            clearInterval(raceInterval);
+            renderAt('#race', resultsView(res.positions));
+            resolve(res);
+        }
+
+	}).catch(err => console.log("Problem with runRace::", err))
 	// remember to add error handling for the Promise
 }
 
