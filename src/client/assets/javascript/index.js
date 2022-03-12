@@ -286,10 +286,6 @@ function renderCountdown(count) {
 }
 
 function renderRaceStartView() {
-
-    // const partUI = racers.map(r => {
-    //     return `<h1> ${r.driver_name} </h1>`
-    // }).join('');
     
 	return `
 		<header>
