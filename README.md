@@ -15,6 +15,8 @@ The game has three main views:
 3. The race results view
 
 ## Starter Code
+This is an educational project to learn asynchronous code and not for production. The objective of the project is to 
+utilize aysnc/await or promise-then chains to compose asynchronous code and fetch using the API the required data from  the backend server for the purpose of completing the functionality of a simulation game.
 
 We have supplied you with the following:
 
